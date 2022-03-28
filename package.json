@@ -4,6 +4,7 @@
     "author": "Aniruddha Basak",
     "bugs": "https://github.com/Aniruddha Basak/covid-safe-checkin-app/issues",
     "dependencies": {
+        "@salesforce-ux/design-system": "^2.17.5",
         "compression": "^1.7.4",
         "express": "^4.17.3",
         "helmet": "^5.0.2"
