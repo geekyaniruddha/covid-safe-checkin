@@ -11,7 +11,12 @@ export default class CustomInput extends LightningElement {
 
     inputHandler(event){
         const{name, value} = event.target;
-        console.log({name, value});
+        this.dispatchEvent(new CustomEvent("formchange", {
+            detail:{
+                name,
+                value
+            }
+        }))
     }
 
 }

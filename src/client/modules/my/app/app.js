@@ -7,7 +7,7 @@ const defaultData = {
 export default class App extends LightningElement {
     formData = defaultData; 
     formchange(event){
-        const {name, value} = event.target;
+        const {name, value} = event.detail;
         this.formData = {...this.formData, [name]:value};
     }
     checkInHandler(event){

@@ -53,9 +53,9 @@
                     </div>
                     
                     <form onsubmit={checkInHandler}>
-                      <my-custom-input type="text" name="Name" required label="Name"></my-custom-input>
-                      <my-custom-input type="email" name="Email" required label="Email"></my-custom-input>
-                      <my-custom-input type="number" name="Number" required label="Number"></my-custom-input>
+                      <my-custom-input type="text" name="Name" required label="Name" onformchange={formchange}></my-custom-input>
+                      <my-custom-input type="email" name="Email" required label="Email" onformchange={formchange}></my-custom-input>
+                      <my-custom-input type="number" name="Mobile" required label="Number" onformchange={formchange}></my-custom-input>
                         <div class="slds-p-top_medium">
                             <button
                                 type="submit"
