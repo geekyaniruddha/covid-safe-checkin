@@ -1,4 +1,8 @@
 <template>
+    <template if:true={loader}>
+        <my-spinner></my-spinner>
+    </template>
+    
     <div
         class="slds-grid slds-grid_align-center slds-wrap slds-gutters slds-p-around_x-large"
     >
