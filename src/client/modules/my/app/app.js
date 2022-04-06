@@ -8,6 +8,10 @@ const BASE_URL = 'http://localhost:3002';
 export default class App extends LightningElement {
     formData = defaultData; 
     loader = false;
+    isSubmitted = false;
+    get checkInMsg(){
+        return `Welcome ${this.formData.Name}. You're checked in!`;
+    }
     formchange(event){
         const {name, value} = event.detail;
         this.formData = {...this.formData, [name]:value};
@@ -27,7 +31,15 @@ export default class App extends LightningElement {
             },
             body:JSON.stringify(this.formData)
         }).then(response=>response.json())
-          .then(result=>console.log(result))
+          .then(result=>{
+              if(result.success){
+                this.isSubmitted = true;
+                window.setTimeout(()=>{
+                    this.isSubmitted = false;
+                    this.formData = {...defaultData};
+                },3000)
+              }
+          })
           .catch(error=>console.error(error))
           .finally(()=>{
               this.loader = false;

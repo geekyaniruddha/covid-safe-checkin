@@ -37,8 +37,11 @@ app.use(express.urlencoded({
     extended:true
 }))
 
-const HOST = process.env.API_HOST || 'localhost';
-const PORT = process.env.API_PORT || 3002;
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 3002;
+const DIST_DIR = './dist';
+
+app.use(express.static(DIST_DIR));
 
 //Google sheet function
 async function accessSpreadsheet(data) {
@@ -79,6 +82,6 @@ app.post('/api/v1/submit', async(req, res) => {
 })
 app.listen(PORT, () =>
     console.log(
-        `✅  API Server started: http://${HOST}:${PORT}/api/v1/endpoint`
+        `✅  App is running on : http://${HOST}:${PORT}`
     )
 );

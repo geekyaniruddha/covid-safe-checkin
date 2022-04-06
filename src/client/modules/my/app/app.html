@@ -16,9 +16,16 @@
                     <header
                         class="slds-media slds-media_center slds-has-flexi-truncate slds-grid_align-center"
                     >
+                    <template if:false={isSubmitted}>
                         <div class="slds-text-heading_large">
                             COVID-19 Safe Check-in Form
                         </div>
+                    </template>
+                    <template if:true={isSubmitted}>
+                        <div class="slds-text-heading_large">
+                            {checkInMsg}
+                        </div>
+                    </template>
                     </header>
                     <!--Card Header Ends-->
                 </div>
@@ -55,7 +62,7 @@
                             />
                         </div>
                     </div>
-                    
+                    <template if:false={isSubmitted}>
                     <form class="slds-border_top slds-p-top_x-large" onsubmit={checkInHandler} >
                       <my-custom-input type="text" name="Name" required label="Name" onformchange={formchange}></my-custom-input>
                       <my-custom-input type="email" name="Email" required label="Email" onformchange={formchange}></my-custom-input>
@@ -69,6 +76,7 @@
                             </button>
                         </div>
                     </form>
+                </template>
                 </div>
                 <!--Card Body Ends-->
             </article>
